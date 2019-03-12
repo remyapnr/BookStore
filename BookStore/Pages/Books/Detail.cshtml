@@ -1,0 +1,25 @@
+﻿@page "{bookId:int}"
+@model BookStore.Pages.Books.DetailModel
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<h2>@Model.Book.Name</h2>
+<div>
+    Id: @Model.Book.Id
+</div>
+<div>
+    Location: @Model.Book.Author
+</div>
+<div>
+    Cuisine: @Model.Book.Type
+</div>
+@if (Model.Message != null)
+{
+    <div class="alert alert-info">@Model.Message</div>
+}
+
+<a asp-page="./List" class="btn btn-default">All Books</a>
+
+
+

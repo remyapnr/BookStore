@@ -1,0 +1,42 @@
+﻿@page
+@model BookStore.Pages.Books.ListModel
+@{
+    ViewData["Title"] = "Books";
+}
+<h1>Books</h1>
+<form method="get">
+    <div class="form-group">
+        <div class="input-group">
+            <input type="search" class="form-control" asp-for="SearchTerm" />
+            <span class="input-group-btn">
+                <button class="btn btn-default">
+                    <i class="glyphicon glyphicon-search"></i>
+                </button>
+            </span>
+        </div>
+    </div>
+</form>
+<table class="table">
+    <tr>
+        <th>Name</th>
+        <th>Author</th>
+        <th>Type</th>
+    </tr>
+    @foreach (var book in Model.Books)
+    {
+
+        <tr>
+            <td>@book.Name</td>
+            <td>@book.Author</td>
+            <td>@book.Type</td>
+            <td>
+                <a class="btn btn-lg" asp-page="./Detail" asp-route-bookId="@book.Id">
+                    <i class="glyphicon glyphicon-zoom-in"></i>
+                </a>
+                <a class="btn btn-lg" asp-page="./Edit" asp-route-bookId="@book.Id">
+                    <i class="glyphicon glyphicon-edit"></i>
+                </a>
+            </td>
+        </tr>
+    }
+</table>
